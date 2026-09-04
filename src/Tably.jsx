@@ -3,8 +3,11 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
+import { validateTably } from './validation.js'
 
 export const Tably = ({ columns, data }) => {
+    validateTably(columns, data)
+
     return (
         <Table>
             <TableHead>
