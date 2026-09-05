@@ -10,8 +10,8 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
-                'react',
-                'react-dom',
+                /^react(?:\/.*)?$/,
+                /^react-dom(?:\/.*)?$/,
                 '@emotion/react',
                 '@emotion/styled',
                 /^@mui\/material(?:\/.*)?$/,
