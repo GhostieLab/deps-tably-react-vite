@@ -4,25 +4,33 @@ A simple and reusable React table component built with Material UI.
 
 ## Installation
 
-Install Tably together with its peer dependencies:
+Tably is currently in development and has not been published to the public
+npm registry yet.
 
-```bash
-pnpm add @labs/tably @mui/material @emotion/react @emotion/styled react react-dom
-```
-
-> `@labs/tably` is the current development package name and may change before the public npm release.
+Installation instructions will be added when the first public release is
+available.
 
 ## Usage
 
-Import `Tably` and provide column definitions and row data:
+The following example uses `tably` as the package name for illustration.
+The final public package name will be documented when Tably is published.
 
 ```jsx
-import { Tably } from '@labs/tably'
+import { Tably } from 'tably'
 
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
-    { field: 'email', headerName: 'Email' },
+    {
+        field: 'name',
+        headerName: 'Name',
+    },
+    {
+        field: 'age',
+        headerName: 'Age',
+    },
+    {
+        field: 'email',
+        headerName: 'Email',
+    },
 ]
 
 const data = [
@@ -43,29 +51,32 @@ export const App = () => {
 }
 ```
 
-Tably renders each column as a table header and uses the column's `field`
-property to read the corresponding value from every data row.
+Tably uses `columns` to define the table structure and `data` to provide the
+rows that will be rendered.
 
-## API
+Each column requires:
 
-Tably currently exposes a single component:
+- `field`: the property name used to read values from each data row.
+- `headerName`: the text displayed in the table header.
 
-```jsx
-<Tably columns={columns} data={data} />
-```
+Each data row must contain every field declared by `columns`.
 
-See [API documentation](docs/API.md) for the complete public API.
+Additional properties in data rows are allowed.
 
-## Validation
+For the complete public API, see [API](docs/API.md).
 
-Tably validates its structural configuration before rendering and throws an
-error when `columns` or `data` do not satisfy its contract.
-
-See [Validation](docs/VALIDATION.md) for the complete validation rules.
+For runtime validation rules and error behavior, see
+[Validation](docs/VALIDATION.md).
 
 ## Development
 
-Run the playground:
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Start the development playground:
 
 ```bash
 pnpm dev
@@ -85,4 +96,4 @@ pnpm lint
 
 ## License
 
-MIT
+Tably is licensed under the MIT License. See [LICENSE](LICENSE).
