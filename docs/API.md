@@ -21,8 +21,8 @@ Tably exposes a React component for rendering tabular data using Material UI.
 
 ```js
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
 ]
 ```
 
@@ -31,9 +31,9 @@ Each column contains:
 | Property | Type | Required | Description |
 | --- | --- | --- | --- |
 | `field` | `string` | Yes | Identifies the property to read from each data row. |
-| `headerName` | `string` | Yes | Text displayed in the table header. |
+| `columnName` | `string` | Yes | Text displayed in the table header. |
 
-Both `field` and `headerName` must be non-empty strings.
+Both `field` and `columnName` must be non-empty strings.
 
 Each `field` must be unique within the `columns` array.
 
@@ -63,8 +63,8 @@ Given:
 
 ```js
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
 ]
 ```
 
@@ -103,7 +103,7 @@ An empty `data` array is valid.
 ## Rendering
 
 For every column, Tably renders a Material UI table header cell using
-`headerName`.
+`columnName`.
 
 For every data row, Tably renders one table cell per declared column. The
 cell value is obtained using:
@@ -116,7 +116,7 @@ For example:
 
 ```js
 const columns = [
-    { field: 'name', headerName: 'Name' },
+    { field: 'name', columnName: 'Name' },
 ]
 
 const data = [

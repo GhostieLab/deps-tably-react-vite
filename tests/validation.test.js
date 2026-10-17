@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { validateTably } from '../src/validation.js'
 
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
 ]
 
 const data = [
@@ -36,24 +36,24 @@ describe('validateTably', () => {
 
     it('requires column fields to be non-empty strings', () => {
         expect(() =>
-            validateTably([{ field: '', headerName: 'Name' }], data),
+            validateTably([{ field: '', columnName: 'Name' }], data),
         ).toThrow(
             'Tably: "field" for column at index 0 must be a non-empty string.',
         )
     })
 
-    it('requires column header names to be non-empty strings', () => {
+    it('requires column names to be non-empty strings', () => {
         expect(() =>
-            validateTably([{ field: 'name', headerName: '' }], data),
+            validateTably([{ field: 'name', columnName: '' }], data),
         ).toThrow(
-            'Tably: "headerName" for column "name" must be a non-empty string.',
+            'Tably: "columnName" for column "name" must be a non-empty string.',
         )
     })
 
     it('rejects duplicate column fields', () => {
         const duplicateColumns = [
-            { field: 'name', headerName: 'Name' },
-            { field: 'name', headerName: 'Other Name' },
+            { field: 'name', columnName: 'Name' },
+            { field: 'name', columnName: 'Other Name' },
         ]
 
         expect(() => validateTably(duplicateColumns, data)).toThrow(
@@ -92,11 +92,11 @@ describe('validateTably', () => {
 
     it('accepts existing fields regardless of their value', () => {
         const valueColumns = [
-            { field: 'nullValue', headerName: 'Null' },
-            { field: 'undefinedValue', headerName: 'Undefined' },
-            { field: 'zeroValue', headerName: 'Zero' },
-            { field: 'falseValue', headerName: 'False' },
-            { field: 'emptyValue', headerName: 'Empty' },
+            { field: 'nullValue', columnName: 'Null' },
+            { field: 'undefinedValue', columnName: 'Undefined' },
+            { field: 'zeroValue', columnName: 'Zero' },
+            { field: 'falseValue', columnName: 'False' },
+            { field: 'emptyValue', columnName: 'Empty' },
         ]
 
         const valueData = [

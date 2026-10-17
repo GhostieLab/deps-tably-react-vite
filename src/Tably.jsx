@@ -14,7 +14,7 @@ export const Tably = ({ columns, data }) => {
                 <TableRow>
                     {columns.map((column) => (
                         <TableCell key={column.field}>
-                            {column.headerName}
+                            {column.columnName}
                         </TableCell>
                     ))}
                 </TableRow>

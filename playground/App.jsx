@@ -1,9 +1,9 @@
 import { Tably } from '../src/index.js'
 
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
-    { field: 'email', headerName: 'Email' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
+    { field: 'email', columnName: 'Email' },
 ]
 
 const data = [

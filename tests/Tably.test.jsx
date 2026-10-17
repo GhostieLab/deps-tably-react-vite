@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest'
 import { Tably } from '../src/index.js'
 
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
 ]
 
 const data = [

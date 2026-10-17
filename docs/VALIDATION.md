@@ -26,7 +26,7 @@ Each column must contain:
 ```js
 {
     field: 'name',
-    headerName: 'Name',
+    columnName: 'Name',
 }
 ```
 
@@ -40,14 +40,14 @@ The following is invalid:
 
 ```js
 [
-    { field: 'name', headerName: 'Name' },
-    { field: 'name', headerName: 'Other Name' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'name', columnName: 'Other Name' },
 ]
 ```
 
-### `headerName`
+### `columnName`
 
-`headerName` must be a non-empty string.
+`columnName` must be a non-empty string.
 
 ## Data
 
@@ -70,8 +70,8 @@ Given:
 
 ```js
 const columns = [
-    { field: 'name', headerName: 'Name' },
-    { field: 'age', headerName: 'Age' },
+    { field: 'name', columnName: 'Name' },
+    { field: 'age', columnName: 'Age' },
 ]
 ```
 
@@ -139,7 +139,7 @@ Tably: "columns" must be an array.
 Tably: "data" must be an array.
 Tably: Column at index 0 must be an object.
 Tably: "field" for column at index 0 must be a non-empty string.
-Tably: "headerName" for column "name" must be a non-empty string.
+Tably: "columnName" for column "name" must be a non-empty string.
 Tably: Duplicate column field "name".
 Tably: Data row at index 0 must be an object.
 Tably: Column "age" does not exist in data row at index 1.
