@@ -21,15 +21,16 @@ import { Tably } from 'tably'
 const columns = [
     {
         field: 'name',
-        headerName: 'Name',
+        columnName: 'Name',
     },
     {
         field: 'age',
-        headerName: 'Age',
+        columnName: 'Age',
     },
     {
         field: 'email',
-        headerName: 'Email',
+        columnName: 'Email',
+        render: (value) => <a href={`mailto:${value}`}>{value}</a>,
     },
 ]
 
@@ -57,7 +58,12 @@ rows that will be rendered.
 Each column requires:
 
 - `field`: the property name used to read values from each data row.
-- `headerName`: the text displayed in the table header.
+- `columnName`: the text displayed in the table header.
+
+Columns may also define:
+
+- `render`: an optional function that receives the field value and returns
+  the content rendered in the table cell.
 
 Each data row must contain every field declared by `columns`.
 

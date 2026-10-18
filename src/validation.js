@@ -25,11 +25,17 @@ export const validateTably = (columns, data) => {
         }
 
         if (
-            typeof column.headerName !== 'string' ||
-            column.headerName.length === 0
+            typeof column.columnName !== 'string' ||
+            column.columnName.length === 0
         ) {
             throw new Error(
-                `Tably: "headerName" for column "${column.field}" must be a non-empty string.`,
+                `Tably: "columnName" for column "${column.field}" must be a non-empty string.`,
+            )
+        }
+
+        if (column.render !== undefined && typeof column.render !== 'function') {
+            throw new Error(
+                `Tably: "render" for column "${column.field}" must be a function.`,
             )
         }
 
