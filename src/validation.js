@@ -33,6 +33,12 @@ export const validateTably = (columns, data) => {
             )
         }
 
+        if (column.render !== undefined && typeof column.render !== 'function') {
+            throw new Error(
+                `Tably: "render" for column "${column.field}" must be a function.`,
+            )
+        }
+
         if (fields.has(column.field)) {
             throw new Error(
                 `Tably: Duplicate column field "${column.field}".`,

@@ -12,6 +12,20 @@ const data = [
 ]
 
 describe('validateTably', () => {
+    it('requires column render to be a function when provided', () => {
+        const invalidColumns = [
+            {
+                field: 'name',
+                columnName: 'Name',
+                render: 'invalid',
+            },
+        ]
+
+        expect(() => validateTably(invalidColumns, data)).toThrow(
+            'Tably: "render" for column "name" must be a function.',
+        )
+    })
+
     it('accepts valid columns and data', () => {
         expect(() => validateTably(columns, data)).not.toThrow()
     })

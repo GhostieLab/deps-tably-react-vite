@@ -25,7 +25,9 @@ export const Tably = ({ columns, data }) => {
                     <TableRow key={index}>
                         {columns.map((column) => (
                             <TableCell key={column.field}>
-                                {row[column.field]}
+                                {column.render
+                                    ? column.render(row[column.field])
+                                    : row[column.field]}
                             </TableCell>
                         ))}
                     </TableRow>

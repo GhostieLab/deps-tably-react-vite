@@ -49,6 +49,34 @@ The following is invalid:
 
 `columnName` must be a non-empty string.
 
+### `render`
+
+`render` is optional.
+
+When provided, `render` must be a function.
+
+For example:
+
+```js
+{
+    field: 'name',
+    columnName: 'Name',
+    render: (value) => value.toUpperCase(),
+}
+```
+
+is valid, while:
+
+```js
+{
+    field: 'name',
+    columnName: 'Name',
+    render: 'invalid',
+}
+```
+
+is invalid.
+
 ## Data
 
 `data` must be an array.
@@ -140,6 +168,7 @@ Tably: "data" must be an array.
 Tably: Column at index 0 must be an object.
 Tably: "field" for column at index 0 must be a non-empty string.
 Tably: "columnName" for column "name" must be a non-empty string.
+Tably: "render" for column "name" must be a function.
 Tably: Duplicate column field "name".
 Tably: Data row at index 0 must be an object.
 Tably: Column "age" does not exist in data row at index 1.

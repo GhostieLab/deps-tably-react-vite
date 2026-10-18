@@ -13,6 +13,36 @@ const data = [
 ]
 
 describe('Tably', () => {
+    it('renders a custom column value', () => {
+        const customColumns = [
+            {
+                field: 'name',
+                columnName: 'Name',
+                render: (value) => `User: ${value}`,
+            },
+        ]
+        
+        render(<Tably columns={customColumns} data={data} />)
+        
+        expect(screen.getByText('User: Alice')).toBeTruthy()
+        expect(screen.getByText('User: Bob')).toBeTruthy()
+    })
+
+    it('renders React elements from a custom column renderer', () => {
+        const customColumns = [
+            {
+                field: 'name',
+                columnName: 'Name',
+                render: (value) => <strong>{value}</strong>,
+            },
+        ]
+        
+        render(<Tably columns={customColumns} data={data} />)
+
+        expect(screen.getByText('Alice').tagName).toBe('STRONG')
+        expect(screen.getByText('Bob').tagName).toBe('STRONG')
+    })
+
     it('renders a table', () => {
         render(<Tably columns={columns} data={data} />)
 
